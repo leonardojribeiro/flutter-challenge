@@ -8,7 +8,11 @@ class CatsRepository {
 
   Future<List<CatModel>?> findCats({required int page, required int limit}) async {
     final response = await _apiService.get(
-      url: 'https://api.thecatapi.com/v1/images',
+      url: 'https://api.thecatapi.com/v1/images/search',
+      queryParamters: {
+        'page': page,
+        'limit': limit,
+      },
       headers: {
         'x-api-key': _apiKey,
       },

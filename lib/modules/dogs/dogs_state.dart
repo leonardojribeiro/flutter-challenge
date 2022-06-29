@@ -1,14 +1,14 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter_challenge/config/utils/debouncer.dart';
-import 'package:flutter_challenge/modules/cats/cats_repository.dart';
 
-import 'package:flutter_challenge/modules/cats/models/cat_model.dart';
+import 'package:flutter_challenge/modules/dogs/dogs_repository.dart';
+import 'package:flutter_challenge/modules/dogs/models/dog_model.dart';
 import 'package:get_it/get_it.dart';
 
-class CatsState extends ValueNotifier<CatStateValue> {
-  CatsState()
+class DogsState extends ValueNotifier<DogsStateValue> {
+  DogsState()
       : super(
-          CatStateValue(
+          DogsStateValue(
             page: 0,
             isLastPage: false,
           ),
@@ -16,19 +16,19 @@ class CatsState extends ValueNotifier<CatStateValue> {
 
   final _debouncer = Debouncer(milliseconds: 500);
 
-  final repository = GetIt.I.get<CatsRepository>();
+  final repository = GetIt.I.get<DogsRepository>();
 
   final limit = 20;
 
   void reset() {
-    value = CatStateValue(
+    value = DogsStateValue(
       isLastPage: false,
       page: 0,
-      cats: null,
+      dogs: null,
     );
   }
 
-  Future<List<CatModel>?> request({required int page}) async {
+  Future<List<DogModel>?> request({required int page}) async {
     return repository.findCats(
       page: page,
       limit: limit,
@@ -36,47 +36,47 @@ class CatsState extends ValueNotifier<CatStateValue> {
   }
 
   Future<void> requestFirstPage() async {
-    final cats = await request(page: 0);
-    value = CatStateValue(
-      cats: cats,
+    final dogs = await request(page: 0);
+    value = DogsStateValue(
+      dogs: dogs,
       page: 1,
-      isLastPage: (cats?.length ?? 0) < limit,
+      isLastPage: (dogs?.length ?? 0) < limit,
     );
     notifyListeners();
   }
 
   Future<void> requestNextPage() async {
     if (!value.isLastPage) {
-      final cats = await request(
+      final dogs = await request(
         page: value.page,
       );
       value = value.copyWith(
-        cats: [...value.cats ?? [], ...cats ?? []],
+        dogs: [...value.dogs ?? [], ...dogs ?? []],
         page: value.page + 1,
-        isLastPage: (cats?.length ?? 0) < limit,
+        isLastPage: (dogs?.length ?? 0) < limit,
       );
       notifyListeners();
     }
   }
 }
 
-class CatStateValue {
-  final List<CatModel>? cats;
+class DogsStateValue {
+  final List<DogModel>? dogs;
   final int page;
   final bool isLastPage;
-  CatStateValue({
-    this.cats,
+  DogsStateValue({
+    this.dogs,
     required this.page,
     required this.isLastPage,
   });
 
-  CatStateValue copyWith({
-    List<CatModel>? cats,
+  DogsStateValue copyWith({
+    List<DogModel>? dogs,
     int? page,
     bool? isLastPage,
   }) {
-    return CatStateValue(
-      cats: cats ?? this.cats,
+    return DogsStateValue(
+      dogs: dogs ?? this.dogs,
       page: page ?? this.page,
       isLastPage: isLastPage ?? this.isLastPage,
     );
@@ -84,18 +84,18 @@ class CatStateValue {
 
   @override
   String toString() {
-    return 'CatStateValue(cats: $cats, page: $page, isLastPage: $isLastPage)';
+    return 'DogsStateValue(dogs: $dogs, page: $page, isLastPage: $isLastPage)';
   }
 
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
 
-    return other is CatStateValue && listEquals(other.cats, cats) && other.page == page && other.isLastPage == isLastPage;
+    return other is DogsStateValue && listEquals(other.dogs, dogs) && other.page == page && other.isLastPage == isLastPage;
   }
 
   @override
   int get hashCode {
-    return cats.hashCode ^ page.hashCode ^ isLastPage.hashCode;
+    return dogs.hashCode ^ page.hashCode ^ isLastPage.hashCode;
   }
 }
