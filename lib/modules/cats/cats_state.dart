@@ -1,5 +1,4 @@
 import 'package:flutter/foundation.dart';
-import 'package:flutter_challenge/config/utils/debouncer.dart';
 import 'package:flutter_challenge/modules/cats/cats_repository.dart';
 
 import 'package:flutter_challenge/modules/cats/models/cat_model.dart';
@@ -13,8 +12,6 @@ class CatsState extends ValueNotifier<CatStateValue> {
             isLastPage: false,
           ),
         );
-
-  final _debouncer = Debouncer(milliseconds: 500);
 
   final repository = GetIt.I.get<CatsRepository>();
 

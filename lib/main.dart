@@ -16,7 +16,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Pets',
-      theme: ThemeData(primarySwatch: Colors.blue, tabBarTheme: TabBarTheme(labelColor: Colors.blue)),
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+        tabBarTheme: const TabBarTheme(labelColor: Colors.blue),
+      ),
       scrollBehavior: const CupertinoScrollBehavior(),
       home: const AppWidget(),
     );

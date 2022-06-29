@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 class PetModel {
   final String? id;
   final String? url;
