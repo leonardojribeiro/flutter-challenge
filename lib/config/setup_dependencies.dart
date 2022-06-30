@@ -1,3 +1,5 @@
+import 'package:flutter_challenge/modules/auth/auth_repository.dart';
+import 'package:flutter_challenge/modules/auth/auth_state.dart';
 import 'package:flutter_challenge/modules/cats/cats_repository.dart';
 import 'package:flutter_challenge/modules/cats/cats_state.dart';
 import 'package:flutter_challenge/modules/dogs/dogs_repository.dart';
@@ -13,4 +15,7 @@ void setupDependencies() {
   //dogs
   GetIt.I.registerLazySingleton<DogsRepository>(() => DogsRepository());
   GetIt.I.registerLazySingleton<DogsState>(() => DogsState());
+  //auth
+  GetIt.I.registerLazySingleton<AuthRepository>(() => AuthRepository());
+  GetIt.I.registerLazySingleton<AuthState>(() => AuthState());
 }

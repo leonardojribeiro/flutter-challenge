@@ -6,22 +6,18 @@ class ImageWidget extends StatelessWidget {
   const ImageWidget({
     Key? key,
     required this.pet,
+    this.onPressed,
   }) : super(key: key);
   final PetModel pet;
+  final VoidCallback? onPressed;
 
   @override
   Widget build(BuildContext context) {
-    return FittedBox(
-      fit: BoxFit.contain,
-      child: SizedBox(
-        width: pet.width?.toDouble(),
-        height: pet.height?.toDouble(),
-        child: Image.network(
-          pet.url ?? '',
-          fit: BoxFit.contain,
-          width: pet.width?.toDouble(),
-          height: pet.height?.toDouble(),
-        ),
+    return GestureDetector(
+      onTap: onPressed,
+      child: Image.network(
+        pet.url ?? '',
+        fit: BoxFit.contain,
       ),
     );
   }

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_challenge/modules/dogs/dogs_state.dart';
 import 'package:flutter_challenge/modules/dogs/models/dog_model.dart';
+import 'package:flutter_challenge/modules/dogs/use_cases/show_dog/show_dog_wiget.dart';
 import 'package:flutter_challenge/shared/widgets/image_widget.dart';
 import 'package:flutter_challenge/shared/widgets/slivers_list_widget.dart';
 import 'package:get_it/get_it.dart';
@@ -16,7 +17,7 @@ class _FindDogsWidgetState extends State<FindDogsWidget> {
   final dogsState = GetIt.I.get<DogsState>();
   @override
   void initState() {
-    if (dogsState.value.dogs == null) {
+    if (dogsState.value.pets == null) {
       dogsState.requestFirstPage();
     }
     super.initState();
@@ -29,17 +30,32 @@ class _FindDogsWidgetState extends State<FindDogsWidget> {
       builder: (context, value, child) {
         return SliversListWidget(
           onEndScroll: dogsState.requestNextPage,
+          onRefresh: dogsState.requestFirstPage,
           slivers: [
             SliverList(
               delegate: SliverChildBuilderDelegate(
                 (context, index) {
-                  final dog = value.dogs?[index] ?? DogModel();
+                  final dog = value.pets?[index] ?? DogModel();
                   return Padding(
                     padding: const EdgeInsets.all(8),
-                    child: ImageWidget(pet: dog),
+                    child: Hero(
+                      tag: dog.id ?? '',
+                      child: ImageWidget(
+                        pet: dog,
+                        onPressed: () {
+                          Navigator.of(context).push(
+                            MaterialPageRoute(
+                              builder: (context) => ShowDogWidget(
+                                dog: dog,
+                              ),
+                            ),
+                          );
+                        },
+                      ),
+                    ),
                   );
                 },
-                childCount: value.dogs?.length ?? 0,
+                childCount: value.pets?.length ?? 0,
               ),
             )
           ],

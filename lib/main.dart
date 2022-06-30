@@ -2,6 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_challenge/app_widget.dart';
 import 'package:flutter_challenge/config/setup_dependencies.dart';
+import 'package:flutter_challenge/modules/auth/use_cases/login/login_widget.dart';
+import 'package:flutter_challenge/modules/auth/widgets/auth_widget.dart';
 
 void main() {
   setupDependencies();
@@ -21,7 +23,10 @@ class MyApp extends StatelessWidget {
         tabBarTheme: const TabBarTheme(labelColor: Colors.blue),
       ),
       scrollBehavior: const CupertinoScrollBehavior(),
-      home: const AppWidget(),
+      home: const AuthWidget(
+        authenticatedChild: AppWidget(),
+        unathenticatedChild: LoginWidget(),
+      ),
     );
   }
 }
