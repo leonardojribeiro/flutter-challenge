@@ -37,7 +37,7 @@ class _FindDogsWidgetState extends State<FindDogsWidget> {
                 (context, index) {
                   final dog = value.pets?[index] ?? DogModel();
                   return Padding(
-                    padding: const EdgeInsets.all(8),
+                    padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
                     child: Hero(
                       tag: dog.id ?? '',
                       child: ImageWidget(

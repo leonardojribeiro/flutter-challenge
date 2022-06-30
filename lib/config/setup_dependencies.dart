@@ -1,3 +1,4 @@
+import 'package:flutter_challenge/app_state.dart';
 import 'package:flutter_challenge/modules/auth/auth_repository.dart';
 import 'package:flutter_challenge/modules/auth/auth_state.dart';
 import 'package:flutter_challenge/modules/cats/cats_repository.dart';
@@ -18,4 +19,6 @@ void setupDependencies() {
   //auth
   GetIt.I.registerLazySingleton<AuthRepository>(() => AuthRepository());
   GetIt.I.registerLazySingleton<AuthState>(() => AuthState());
+  //app
+  GetIt.I.registerLazySingleton<AppState>(() => AppState());
 }
