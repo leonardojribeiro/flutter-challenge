@@ -12,6 +12,8 @@ dependencies:
   get_it: ^7.2.0
   shared_preferences: ^2.0.15
   google_fonts: ^3.0.1
+  flutter_launcher_icons: ^0.9.3
+  flutter_native_splash: ^2.2.3+1
 
 dev_dependencies:
   flutter_test:
@@ -23,3 +25,7 @@ flutter:
   assets:
     - assets/emails.json
   
+flutter_icons:
+  android: "ic_launcher"
+  ios: true
+  image_path: "assets/icon.png"

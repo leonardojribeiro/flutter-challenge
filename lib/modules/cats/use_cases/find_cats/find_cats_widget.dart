@@ -3,6 +3,7 @@ import 'package:flutter_challenge/modules/cats/cats_state.dart';
 import 'package:flutter_challenge/modules/cats/models/cat_model.dart';
 import 'package:flutter_challenge/modules/cats/use_cases/show_cat/show_cat_wiget.dart';
 import 'package:flutter_challenge/shared/widgets/image_widget.dart';
+import 'package:flutter_challenge/shared/widgets/loading_widget.dart';
 import 'package:flutter_challenge/shared/widgets/slivers_list_widget.dart';
 import 'package:get_it/get_it.dart';
 
@@ -57,7 +58,8 @@ class _FindCatsWidgetState extends State<FindCatsWidget> {
                 },
                 childCount: value.pets?.length ?? 0,
               ),
-            )
+            ),
+            if (value.isLoading) const LoadingWidget(),
           ],
         );
       },

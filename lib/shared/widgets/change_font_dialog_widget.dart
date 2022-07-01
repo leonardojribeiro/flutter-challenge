@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_challenge/app_state.dart';
+import 'package:flutter_challenge/shared/states/app_state.dart';
 import 'package:get_it/get_it.dart';
 import 'package:google_fonts/google_fonts.dart';
 

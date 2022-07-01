@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_challenge/app_state.dart';
+import 'package:flutter_challenge/shared/states/app_state.dart';
 import 'package:flutter_challenge/app_widget.dart';
 import 'package:flutter_challenge/config/setup_dependencies.dart';
 import 'package:flutter_challenge/modules/auth/use_cases/login/login_widget.dart';

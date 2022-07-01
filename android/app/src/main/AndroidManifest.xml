@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.ribeiro.leonardo.flutter_challenge">
    <application
-        android:label="flutter_challenge"
+        android:label="Pets"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

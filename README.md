@@ -1,16 +1,28 @@
-# flutter_challenge
+# Pets
 
-A new Flutter project.
+Projeto desenvolvido como desafio técnico de Flutter.
 
-## Getting Started
+## Funcionalidades
+- [x] Listagem de gatos
+- [x] Listagem de cachorros
+- [x] Visualização do gato selecionado
+- [x] Visualização do cachorro selecionado
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Como executar?
+1. Certifique-se de possuir o Flutter instalado em sua máquina. Você poderá obtê-lo [aqui](https://docs.flutter.dev/get-started/install).
+2. Clone este repositório na sua máquina através do comando:
+```bash
+git clone https://github.com/leonardojribeiro/flutter-challenge.git
+```
+3.  Navegue até a pasta de onde o projeto foi clonado:
+```bash
+cd flutter-challenge
+```
+4. Instale as dependências através do comando:
+```bash
+dart pub get
+```
+5. Execute o app através do comando:
+```bash
+flutter run
+```

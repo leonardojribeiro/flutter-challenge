@@ -19,7 +19,7 @@ class _AppWidgetState extends State<AppWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Pets'),
+        title: const Text('Pets para adoção'),
       ),
       drawer: Drawer(
         child: SafeArea(

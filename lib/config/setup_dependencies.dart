@@ -1,4 +1,4 @@
-import 'package:flutter_challenge/app_state.dart';
+import 'package:flutter_challenge/shared/states/app_state.dart';
 import 'package:flutter_challenge/modules/auth/auth_repository.dart';
 import 'package:flutter_challenge/modules/auth/auth_state.dart';
 import 'package:flutter_challenge/modules/cats/cats_repository.dart';
