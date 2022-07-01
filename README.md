@@ -26,3 +26,5 @@ flutter pub get
 ```bash
 flutter run
 ```
+## Como instalar?
+Você pode usar um dos aquivos .apk neste repositório, eles foram compilados para ABIs específicas, então, caso o primeiro não funcione em seu dispositivo, tente os demais.
