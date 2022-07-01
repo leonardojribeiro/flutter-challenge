@@ -20,7 +20,7 @@ cd flutter-challenge
 ```
 4. Instale as dependências através do comando:
 ```bash
-dart pub get
+flutter pub get
 ```
 5. Execute o app através do comando:
 ```bash

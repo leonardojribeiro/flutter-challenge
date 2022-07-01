@@ -27,6 +27,7 @@ class _MyAppState extends State<MyApp> {
       valueListenable: appState,
       builder: (context, snapshot, child) {
         return MaterialApp(
+          debugShowCheckedModeBanner: false,
           title: 'Pets',
           theme: ThemeData(
             primarySwatch: snapshot.primaryColor,
